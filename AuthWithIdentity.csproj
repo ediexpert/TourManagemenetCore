@@ -9,11 +9,20 @@
     <Folder Include="Views\" />
     <Folder Include="Views\Shared\" />
     <Folder Include="Views\Account\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="DomainObjects\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.3" />
     <PackageReference Include="NETCore.MailKit" Version="2.0.2" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PAYFORT.SDK">
+      <HintPath>..\..\Downloads\payfort-dotnet-sdk-master\DLL\PAYFORT.SDK.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>
