@@ -12,6 +12,7 @@
     <Folder Include="Helpers\" />
     <Folder Include="DomainObjects\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Views\Tours\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
