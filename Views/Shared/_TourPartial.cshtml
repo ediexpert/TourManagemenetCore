@@ -1,5 +1,8 @@
-﻿@model AuthWithIdentity.ViewModels.ProductViewModel
+﻿@model AuthWithIdentity.DomainObjects.Tour
 
 <p>@Model?.Name</p>
-<p>@Model?.ServiceDate</p>
-<p>@Model?.Item?.Quantity</p>
+
+@foreach (var item in Model.Variants)
+{
+    <p>@item.Name @item.Price</p>
+}

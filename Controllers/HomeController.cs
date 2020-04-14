@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using AuthWithIdentity.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -16,12 +17,14 @@ namespace AuthWithIdentity.Controllers
 
         public readonly SignInManager<IdentityUser> _SigninManager;
         private readonly IEmailService _EmailService;
+        private readonly AppDbContext _DbContext;
 
-        public HomeController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IEmailService emailService)
+        public HomeController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IEmailService emailService, AppDbContext dbContext)
         {
             _UserManager = userManager;
             _SigninManager = signInManager;
             _EmailService = emailService;
+            _DbContext = dbContext;
         }
         public IActionResult Index()
         {
@@ -129,5 +132,20 @@ namespace AuthWithIdentity.Controllers
 
 
         public IActionResult EmailVerification() => View();
+
+        public IActionResult Tours()
+        {
+            List<ViewModels.ProductViewModel> products = GetProductList();
+            return View(products);
+        }
+
+        private List<ProductViewModel> GetProductList()
+        {
+            var lst = new List<ProductViewModel>();
+            lst.Add(new ProductViewModel { Name = "Product 1", Item = new ItemViewModel { Quantity = 10} });
+            lst.Add(new ProductViewModel { Name = "Product 2", Item = new ItemViewModel { Quantity = 10 } });
+            lst.Add(new ProductViewModel { Name = "Product 3", Item = new ItemViewModel { Quantity = 10 } });
+            return lst;
+        }
     }
 }
