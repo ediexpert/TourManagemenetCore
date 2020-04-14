@@ -89,6 +89,6 @@ namespace AuthWithIdentity.Controllers
             return Content("unable to verify the code");
         }
 
-        public IActionResult EmailVerification() => View();
+        public IActionResult EmailVerification() => View("VerifyEmail");
     }
 }

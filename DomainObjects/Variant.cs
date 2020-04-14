@@ -6,8 +6,10 @@ namespace AuthWithIdentity.DomainObjects
         public Variant()
         {
         }
-        public Tour Tour { get; set; }
+        
         public string Name { get; set; }
+        public decimal PseudoPrice { get; set; }
         public decimal Price { get; set; }
+        public Tour Tour { get; set; }
     }
 }
