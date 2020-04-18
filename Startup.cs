@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthWithIdentity.DomainObjects;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,13 +30,14 @@ namespace AuthWithIdentity
             {
                 config.UseInMemoryDatabase("Inmemory");
             });
-            services.AddIdentity<IdentityUser, IdentityRole>(config => {
+            services.AddIdentity<ApplicationUser, IdentityRole>(config => {
                 config.Password.RequiredLength = 4;
                 config.Password.RequireDigit = false;
                 config.Password.RequireNonAlphanumeric = false;
                 config.Password.RequireUppercase = false;
                 config.SignIn.RequireConfirmedEmail = true;
-            })
+                
+            })             
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 

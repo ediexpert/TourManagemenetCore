@@ -1,4 +1,5 @@
 ﻿using System;
+using AuthWithIdentity.DomainObjects;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +15,15 @@ namespace AuthWithIdentity
         {
         }
 
+        public DbSet<ApplicationUser> AppUsers { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<ServiceType> ServiceTypes { get; set; }
+        public DbSet<Variant> Variants { get; set; }
+        public DbSet<SeoMetadata> SeoMetadatas { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<Basketitem> BasketItems { get; set; }
+        public DbSet<Wish> Wishes { get; set; }
         //public DbSet<Tour> Tours { get; set; }
         //public DbSet<Variant> Variants { get; set; }
         //public DbSet<Booking> Bookings { get; set; }

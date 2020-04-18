@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -18,7 +19,7 @@ namespace AuthWithIdentity.DomainObjects
         }
 
         // Your Extended Properties
-
+        public ICollection<Wish> Wishlist { get; set; }
 
     }
 }

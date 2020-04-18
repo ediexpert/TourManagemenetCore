@@ -10,6 +10,6 @@ namespace AuthWithIdentity.DomainObjects
         public string Name { get; set; }
         public decimal PseudoPrice { get; set; }
         public decimal Price { get; set; }
-        public Tour Tour { get; set; }
+        public ServiceType ServiceType { get; set; }
     }
 }

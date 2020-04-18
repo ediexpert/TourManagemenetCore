@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthWithIdentity.DomainObjects;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NETCore.MailKit.Core;
@@ -12,12 +13,12 @@ namespace AuthWithIdentity.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<IdentityUser> _UserManager;
+        private readonly UserManager<ApplicationUser> _UserManager;
 
-        public readonly SignInManager<IdentityUser> _SigninManager;
+        public readonly SignInManager<ApplicationUser> _SigninManager;
         private readonly IEmailService _EmailService;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IEmailService emailService)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IEmailService emailService)
         {
             _UserManager = userManager;
             _SigninManager = signInManager;
@@ -55,7 +56,7 @@ namespace AuthWithIdentity.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(string username, string password)
         {
-            var user = new IdentityUser() { UserName = username };
+            var user = new ApplicationUser() { UserName = username };
             var res = await _UserManager.CreateAsync(user, password);
             if (res.Succeeded)
             {

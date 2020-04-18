@@ -1,8 +1,8 @@
-﻿@model AuthWithIdentity.DomainObjects.Tour
+﻿@model AuthWithIdentity.DomainObjects.Service
 
 <p>@Model?.Name</p>
 
-@foreach (var item in Model.Variants)
+@foreach (var item in Model.ServiceTypes)
 {
-    <p>@item.Name @item.Price</p>
+    <p>@item.Name @item.Name</p>
 }
